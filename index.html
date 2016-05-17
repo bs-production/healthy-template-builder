@@ -1,0 +1,509 @@
+  <?php
+    // this is here to prevent loading extra homepage content. Remove when we copy stuff into index
+    global $thePage, $cmsPageData;
+    if ($thePage == 'index') {
+       $cmsPageData['page.body_content'] = '';
+    }
+    ?>
+    
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+         <title>[[title]]</title>
+        <meta name="description" content="[[description]]">
+        <meta name="keywords" content="[[keywords]]">      
+         <!-- build:favicon -->
+            <link rel="icon" href="%s">
+        <!-- endbuild -->
+        
+        <link rel="alternate" title="News and Events" href="/feeds.xml" type="application/rss+xml" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js" defer></script>
+        
+        <link rel="stylesheet" type="text/css" href="/core/jquery-ui.css" />
+        <link rel="stylesheet" type="text/css" href="/core/v2/jquery-ui-default.css" />
+        
+         
+        <script src="/core/js/jquery.thScrollable.js" type="text/javascript" defer></script>
+        
+        <!-- ColorBox -->
+        <script type="text/javascript" src="/core/js/colorbox/jquery.colorbox-min.js" defer></script>
+        <link rel="stylesheet" type="text/css" href="/core/js/colorbox/colorbox.css" />
+        <!--End ColorBox-->
+
+        <link rel="stylesheet" type="text/css" href="/core/v3/toolbox.css" />
+        <link rel="stylesheet" type="text/css" href="/core/v2/inline-widgets.css" />
+        <link rel="stylesheet" type="text/css" href="/core/v2/sidebar-widgets.css" />
+        <link rel="stylesheet" type="text/css" href="/core/v2/modules.css" />
+        
+        <link rel="stylesheet" href="/core/v3/foundation.min.css">
+        
+        <!--Mobile Overrides --> 
+        <link rel="stylesheet" media="screen and (max-width: 960px)" href="/core/v3/mobile.css" />
+        <link rel="stylesheet" href="/core/v3/nav.css" />
+        
+        <!--<link rel="stylesheet" type="text/css" href="/inc/sb-styles.css?custom_template_id=10">-->
+        <link rel="stylesheet" type="text/css" href="/inc/sb-styles.css">
+        
+        
+    </head>
+    <body>
+        
+        <div id="homepage-template">
+            <div class="container" id="header">
+                <div class="row collapse">
+                    <div class="large-4 columns" id="logo">
+
+                       <a href="/">
+                          <!-- build:logo -->
+                         <img src="%s" alt="[company]">
+                           <!-- endbuild -->
+                       </a>
+                    </div>
+                    <div class="large-8 columns" id="phone">
+                        <?php 
+                            $iphone = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+                            $android = strpos($_SERVER['HTTP_USER_AGENT'],"Android");
+                            if($iphone || $android  == true) 
+                            { 
+                            ?>
+                            <a href="tel:<?php echo $phonenumber; ?>" class="phone_link"> 
+                            
+                            <?
+                            }
+                            else 
+                            { ?>
+                            
+                            <a href="/free-estimate.html>" class="phone_link">
+                            <?php 
+                            }
+                            ?>
+                        <?php
+                            $times = get_open_time();
+                            if($times or isset($_GET['open']))
+                            { 
+                                ?>
+                        
+                            <div class="opensign" onclick="location.href='/free-estimate.html';" style="cursor:pointer;"><span>open</span></div>
+                        
+                            <?php                 
+                            } 
+                                ?>
+                                                
+                        [phone]
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container" id="nav-bar">
+    <div class="row collapse">
+        <div class="columns top-nav contain-to-grid sticky">
+            <div class="logo-phone-stick show-for-large-up"><span><a href="tel:<?php echo $phonenumber; ?>" class="phone_link">[phone]</a></span></div>
+            <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: [medium,large]">
+                <ul class="title-area">
+                    <!-- Title Area -->
+                    <li class="name">
+                    </li>
+                    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+                </ul>
+                <section class="top-bar-section">
+                <!-- Top Nav Section -->
+                    <ul class="right" id="top-nav-list">
+                        <li class="has-dropdown">
+                            <a href="#">Services</a>
+                            <ul class="dropdown m-menu">
+                                <li>
+                                    <div class="row">
+                                        <div class="columns">
+                                            <ul class="m-menu-ul">
+                                                   <!-- @@include /nav.html   -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul><!-- end .m-menu -->
+                        </li>
+
+                        <li class="has-dropdown">
+                            <a href="#">Our Work</a>
+                            <ul class="dropdown m-menu short">
+                                <li>
+                                    <div class="row">
+                                        <div class="columns">
+                                            <ul class="m-menu-ul">
+                                                <li><a href="/about-us/photo-gallery.html">Photo Gallery</a></li>
+                                                <li><a href="/about-us/before-after.html">Before &amp; After</a></li>
+                                                <li><a href="/about-us/case-studies.html">Case Studies</a></li>
+                                                <li><a href="/about-us/reviews.html">Customer Reviews</a></li>
+                                                <li><a href="/about-us/testimonials.html">Testimonials</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li onclick="location.href='/service-area.html';" style="cursor:pointer;"><a href="/service-area.html">Service Area</a></li>
+                        
+                        <li class="quote" onclick="location.href='/free-estimate.html';" style="cursor:pointer;"><a href="/free-estimate.html">Free Quote</a></li>
+                    </ul>
+                </section>
+            </nav><!-- END Nav -->
+        </div>
+    </div>
+</div>
+
+<?php if ($thePage == "index") { ?>
+
+<div class="container" id="main-message">
+<div class="row">
+ 
+<div class="medium-5 medium-offset-1 columns" id="owner-bg">
+    <!-- build:umbrella -->
+     <img src="%s" class="umbrella-hero">
+    <!-- endbuild --> 
+</div>
+
+<div class="medium-7 medium-offset-5 columns" id="main-text">
+    <p class="we-are">we are your local expert for</p>
+    <img src="http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/48/atb-bg-new.png">
+     <p class="main-service-text">
+
+       <!-- @@include /service-atb.html   -->
+ 
+            </p> 
+    <a class="button" href="/free-estimate.html" title="Contact us for a Free Quote">Contact us for a Free Quote</a>
+</div>
+
+
+</div>
+</div><!-- end main message -->
+<div class="container" id="service-area-bar">
+    <div class="row">
+        <div class="columns"><p class="main-service-area"><a href="/service-area.html"> proudly serving [state] - including [major cities 1]</a></p></div>
+    </div>
+</div><!-- end service area text -->
+<div class="container" id="cred">
+<div class="row">
+
+  <!-- @@include /hero-cred.html   -->
+
+  
+</div>
+</div><!-- end credibility -->
+<div class="container home" id="services">
+        <div class="row">
+        <!-- build:toptext -->
+            <div class="home-text columns">
+                <h1>H1 content goes here please and thank you</h1>
+                <h2>H2 content goes here thanks again for your cooperation</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget molestie magna, vel varius metus. Sed pretium tellus at lacinia efficitur. Vestibulum laoreet metus in felis aliquam ornare.</p>
+                <p>Nam volutpat arcu vitae sagittis posuere. Maecenas ultricies massa vel ultricies sollicitudin. Cras eu est orci. Praesent rutrum sodales sem in porta. Duis a lacus ut diam iaculis varius. Mauris lacinia, neque fringilla placerat tempus, magna magna ornare erat, nec viverra mi erat ut odio. Donec ac porta turpis. Aliquam eu ipsum ut nulla placerat porta et dignissim lorem.</p>
+            </div>
+        <!-- endbuild --> 
+        </div>
+                        <div id="services-container" class="row">
+           
+                            <!-- @@include /services-box.html   -->
+
+
+                            
+                        </div><!-- end #services-container -->
+                        <div class="row">
+                            <div class="medium-6 columns"><!-- FREE ESTIMATE -->
+                                <div class="service-feature">
+                                    <a href="/free-estimate.html">
+                                        <h3>Free Estimates</h3>
+                                        <p>We offer a free, in-home inspection and cost estimate for all our <em>"Basementy" services.</em></p></div>
+                                    </a>
+                                </div>
+                                <div class="medium-6 columns"><!-- FINANCING OR COUPONS OR WHATEVER -->
+                                    <div class="service-feature financing">
+                                        <a href="/about-us/financing.html">
+                                            <h3>Financing Available</h3>
+                                            <p>From basement waterproofing to foundation repair, we can offer financing options for practically any job.</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- end services -->
+
+                        <div class="container home" id="choose-us">
+                            <div class="row">
+                                <div class="columns">
+                                <h2>Why Homeowners Choose Us</h2>
+                                </div>                                                        
+                            </div>
+                            <div class="row">
+                                <div class="medium-10 columns">
+                        
+                                     <!-- build:chooseus -->
+                                    <p class="check">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>  
+                                    <p class="check">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                    <p class="check">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                    <!-- endbuild -->
+                                    
+                                </div>
+                                <div class="medium-2 columns">
+                                    <div class="bbb">
+                                        <a href="#" target="_blank">
+                                         <!-- build:chooseus -->
+                                            <img src="http://placehold.it/150x150">
+                                        <!-- endbuild -->
+                                        </a>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="row">
+                        		<div class="home-text columns">
+                        		    <h2>H2 content goes here thanks again for your cooperation</h2>
+                    				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget molestie magna, vel varius metus. Sed pretium tellus at lacinia efficitur. Vestibulum laoreet metus in felis aliquam ornare.</p>
+                                    <p>Nam volutpat arcu vitae sagittis posuere. Maecenas ultricies massa vel ultricies sollicitudin. Cras eu est orci. Praesent rutrum sodales sem in porta. Duis a lacus ut diam iaculis varius. Mauris lacinia, neque fringilla placerat tempus, magna magna ornare erat, nec viverra mi erat ut odio. Donec ac porta turpis. Aliquam eu ipsum ut nulla placerat porta et dignissim lorem.</p>
+                                </div>
+                            </div>           
+                        </div><!-- End Choose Us -->
+
+                        <div class="container home" id="customers">
+                            <div class="row">
+                                <div class="columns">
+                                    <h2>thousands of satisfied customers</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="large-6 columns">
+                                    <div id="home-vid">
+                                        <div class="flex-video widescreen vimeo">
+                                        <!-- build:video -->
+                                            <iframe width="560" height="315" src="%s" frameborder="0" allowfullscreen></iframe>
+                                        <!-- endbuild --> 
+                                        </div>
+                                        <p class="more-assets"><a href="/about-us/testimonials.html">more testimonials</a></p>
+                                    </div>
+                                </div>
+                                <div class="large-6 columns">
+                                    
+                                     <?php
+                                    $meta = array();
+                                        $meta['useGeo'] = true;
+                                        $meta['manualAssetPage'] = false;
+                                        $meta['useFeatured'] = false;
+                                        $meta['siloMode'] = false;
+                                        $meta['qty'] = 3;
+                                        $meta['template'] = 5587;
+                                    $templates = array();
+                                    $templates['main'] = array('
+                                        <div id="home-reviews">
+                                                <div class="review_item">
+                                                     [[items]]
+                                                </div>
+                                                <p class="more-assets">
+                                                    <a href="[[moreurl]]">More Reviews</a>
+                                                </p>
+                                            </div>');
+                                      $templates['item'] = array('
+                                     <div class="review_item" id="tabs_[[num]]">
+                                        <div class="review_item_details">
+                                            <div class="small_review_stars_grouping">[[stars]]</div> <div class="review_customer">[[author]]</div><div class="review_location_date">[[location]]</div>
+                                        </div>
+                                        <div class="widget_item_right">
+                                            <div class="text review_preview"><a href="[[url]]">[[text]]</a></div>
+                                        </div>
+                                    </div>');
+                                    $title = 'Reviews';
+                                    require_once('widgets/reviews_sidebar_widget.php');
+                                    echo($output);
+                                ?>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="home-text columns">
+                    <!-- build:satisy -->
+                        <h2>H2 content goes here thanks again for your cooperation</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget molestie magna, vel varius metus. Sed pretium tellus at lacinia efficitur. Vestibulum laoreet metus in felis aliquam ornare.</p>
+                        <p>Nam volutpat arcu vitae sagittis posuere. Maecenas ultricies massa vel ultricies sollicitudin. Cras eu est orci. Praesent rutrum sodales sem in porta. Duis a lacus ut diam iaculis varius. Mauris lacinia, neque fringilla placerat tempus, magna magna ornare erat, nec viverra mi erat ut odio. Donec ac porta turpis. Aliquam eu ipsum ut nulla placerat porta et dignissim lorem.</p>
+                        <!-- endbuild --> 
+                    </div>
+                </div>
+            </div><!-- end reviews/testimonials -->
+<div class="container" id="home-content-wrap">
+    <div class="row">
+        <div class="columns">
+
+<?php
+}
+elseif (stristr($thePage,"free-estimate"))
+{
+    ?>
+    <div class="container" id="content-wrap">
+        <div class="row">
+            <div class="columns">
+
+<?php
+}
+else
+{
+    ?>
+    <div class="container" id="silo-header">
+        <div class="row">
+            <div class="medium-10 large-7 medium-centered large-uncentered columns" id="subnav">
+                <span class="page-title"><?php echo $cmsPageData['page.name']; ?></span>
+                [[navigation_children]]
+            </div>
+        </div>
+
+        <?php
+        if (stristr($thePage,"about-us"))
+        {
+            ?>
+                    <div class="silo-bg about"></div>
+
+        <?php
+        }
+        elseif (stristr($thePage,"basement-waterproofing"))
+        {
+            ?>
+                    <div class="silo-bg waterproofing"></div>
+
+        <?php
+        }
+        elseif (stristr($thePage,"foundation-repair"))
+        {
+            ?>
+                    <div class="silo-bg foundation"></div>
+
+        <?php
+        }
+        elseif (stristr($thePage,"crawl-space-repair"))
+        {
+            ?>
+                    <div class="silo-bg crawl-space"></div>
+
+        <?php
+        }
+        elseif (stristr($thePage,"sump-pump"))
+        {
+            ?>
+                    <div class="silo-bg sump-pump"></div>
+
+        <?php
+        }
+        elseif (stristr($thePage,"mold-removal"))
+        {
+            ?>
+                    <div class="silo-bg mold"></div>
+
+        <?php
+        }
+        elseif (stristr($thePage,"basement-finishing"))
+        {
+            ?>
+                    <div class="silo-bg finishing"></div>
+
+        <?php
+        }
+        elseif (stristr($thePage,"flood-vents"))
+        {
+            ?>
+                    <div class="silo-bg flood-vents"></div>
+                    
+                      <?php
+        }
+        elseif (stristr($thePage,"radon"))
+        {
+            ?>
+                    <div class="silo-bg radon"></div>
+                    
+            <?php
+        }
+        elseif (stristr($thePage,"concrete"))
+        {
+            ?>
+                    <div class="silo-bg concrete"></div>
+
+        <?php
+        }
+        elseif (stristr($thePage,"water-damage-restoration"))
+        {
+            ?>
+                    <div class="silo-bg water-damage"></div>
+        <?php
+        }
+        else
+        {
+            ?>
+                    <div class="silo-bg about"></div>
+        <?php
+        }
+        ?>
+
+</div><!-- end #silo-header -->
+
+<div class="container" id="content-wrap">
+    <div class="row">
+        <div class="columns">[[breadcrumbs]]</div>
+    </div>
+    <div class="row">
+        <div class="columns">
+<?php
+}
+?>
+                [[content]]
+
+        </div>
+    </div>
+</div>
+
+<!-- END Silo/SubNav Swap -->
+    <?php if ($thePage != "service-area") { ?>
+<div class="container home" id="service-area">
+    <div class="row">
+        <div class="large-5 columns">
+            <div id="home-city-list">
+                <h2>our service area</h2>
+                [[city_scroll:50]]
+            </div>
+        </div>
+        <div class="large-7 columns service-map">
+        	<div id="gmap-wrap">[[service_area_google_map]]</div>
+        </div>
+    </div>
+</div>
+
+    <?php
+    }
+    ?>
+    
+            <div class="container home" id="footer">
+                <div class="row" data-equalizer>
+                    <div class="large-7 large-push-5 columns" data-equalizer-watch>
+                        <div id="footer-links">
+                             <!-- @@include /footer.html   -->
+                        </div>
+                    </div>
+                    <div class="large-5 large-pull-7 columns" data-equalizer-watch>
+                        <div id="footer-contact">
+                            <a href="/free-estimate.html" id="footer-btn">get a free quote</a>
+                            <p class="footer-phone">Or call us at
+                                <span><a href="tel:<?php echo $phonenumber; ?>" class="phone_link">[phone]</a></span>
+                            </p>
+                            <p class="footer-disclaimer"></p>
+                            <p class="footer-address">
+                                 &copy; <?php echo(date('Y')); ?> [[company]]<br>
+                                [[address street]]<br>
+                                [[address city]], [[address state]] [[address zip]]<br>
+                            [phone]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation.min.js"></script>
+        <script src="/core/v3/template.js"></script>
+    </body>
+</html>
