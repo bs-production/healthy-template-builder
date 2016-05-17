@@ -25,6 +25,7 @@ sudo npm install npm -g
 
 ### Open up Terminal 
 - Navigate to the folder - type cd  and then follow these instructions http://osxdaily.com/2011/03/02/drag-drop-finder-items-into-the-terminal-for-their-full-path/  - just drag your folder into the terminal 
+- next type sudo npm install - This is going to install all the goodies we need. 
 - next type "gulp mega-build" 
 
 ## New index 
