@@ -38,3 +38,5 @@ Update the text with what is in WORD doc you get from borders
 
 ## New index 
 - Inside the build folder there will be a brand new file you can copy into your borders file. 
+- Copy the index.html into the borders in the CMS 
+- Grab the template.css and style.css from devtest30 in the CMS
