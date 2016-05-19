@@ -1,4 +1,6 @@
-# How To Use The Builder 
+# How To Use The Healthy Builder 
+
+Example Site: http://devtest30.basementsite.com/
 
 ## Install NodeJS
 https://nodejs.org/en/
@@ -14,7 +16,7 @@ sudo npm install npm -g
 ### Edit
 - Footer.html - hardcode your links
 - hero-cred.html - add links to your credibility 
-- nav.html - this is just services section. Add for yoru site 
+- nav.html - Update the nav with your sites services and links
 - service-atb.html - this is the list of services near Umbrella 
 - services-box.html - this is a list of all the icons and blups. 
 
