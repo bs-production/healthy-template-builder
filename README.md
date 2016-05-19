@@ -14,7 +14,7 @@ sudo npm install npm -g
 ## Download The Zip 
 
 ### Edit
-- Footer.html - hardcode your links
+- Footer.html - hardcode your links (Remember to always use /pagename.html)
 - hero-cred.html - add links to your credibility 
 - nav.html - Update the nav with your sites services and links
 - service-atb.html - this is the list of services near Umbrella 
