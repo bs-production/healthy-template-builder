@@ -22,9 +22,10 @@ sudo npm install npm -g
 
 
 ### Update Gulpfile.js 
-- favicon, umbrealla, logo, bbb - just update images to the new path use the CMS file manager to get image URLS
+- favicon, umbrealla, logo, bbb - just update images to the new path use the CMS file manager to get image URLS(http://images.domain.com)
 
-### Content 
+
+- ### Content 
 Update the text with what is in WORD doc you get from borders 
 - toptext - Section above the services icons
 - chooseus - Why Homowners Choose Us Text 
