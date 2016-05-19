@@ -23,7 +23,13 @@ sudo npm install npm -g
 
 ### Update Gulpfile.js 
 - favicon, umbrealla, logo, bbb - just update images to the new path
-- toptext, chooseus, ussupporting, satisy - update the text with what is in WORD doc you get from borders 
+
+### Content 
+Update the text with what is in WORD doc you get from borders 
+- toptext - Section above the services icons
+- chooseus - Why Homowners Choose Us Text 
+- ussupporting - Text blow check boxes
+- satisy -  Text below the video
 
 ### Open up Terminal 
 - Navigate to the folder - type cd  and then follow these instructions http://osxdaily.com/2011/03/02/drag-drop-finder-items-into-the-terminal-for-their-full-path/  - just drag your folder into the terminal 
